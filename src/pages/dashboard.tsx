@@ -1,3 +1,5 @@
+import { Header } from "../components/Header";
+
 export function Dashboard() {
-  return <p>Hello World ?love?</p>
+  return <Header />
 }
