@@ -5,9 +5,7 @@ const Routes = () => {
   return (
     <BrowserRouter>
       <Switch>
-        <Route path="/">
-          <h2>Hello World</h2>
-        </Route>
+        <Route path="/" exact component={Dashboard}></Route>
       </Switch>
     </BrowserRouter>
   );
