@@ -7,18 +7,19 @@ import searchImg from "../assets/search.svg";
 import chatImg from "../assets/chat.svg";
 import calendarImg from "../assets/calendar.svg";
 import bellImg from "../assets/bell.svg";
+import { HeaderStyle } from "../styles/HeaderStyle";
 
 export function Header() {
   return (
     <>
-      <header>
+      <HeaderStyle>
         <div className="leftContent">
-          <div>
+          <div className="logo">
             <Link to="./">
               <img src={logoWideImg} alt="" />
             </Link>
           </div>
-          <div>
+          <div className="account">
             <button>
               Conta Corrente
               <img src={caretDownImg}></img>
@@ -26,35 +27,41 @@ export function Header() {
             <div>
               <h2>Ag. 00005-1</h2>
               <h2>C.C. 00000000000000000020-1</h2>
-              <i>
+              <button>
                 <img src={copyImg} />
-              </i>
+              </button>
             </div>
           </div>
           <div className="cash">
             <div>
               <h2>Saldo</h2>
-              <img src={eyeImg}></img>
+              <button>
+                <img src={eyeImg}></img>
+              </button>
             </div>
-            <h1>R$40.000,00</h1>
+            <span>R$40.000,00</span>
           </div>
         </div>
         <div className="rightContent">
-          <input type="search" name="searchInput" id="search" />
+          <div className="searchField">
+            <input type="text" name="searchInput" id="search" placeholder="Pesquisar" />
           <button>
             <img src={searchImg} alt="Pesquisar" />
           </button>
+          </div>
+          
+          <button>
+            <img src={chatImg} alt="Chat"></img>
+          </button>
+          <button>
+            <img src={calendarImg} alt="Calendário"></img>
+          </button>
+          <button>
+            <img src={bellImg} alt="Notificações"></img>
+          </button>
+          <button className="profile"></button>
         </div>
-        <button>
-          <img src={chatImg} alt="Chat"></img>
-        </button>
-        <button>
-          <img src={calendarImg} alt="Calendário"></img>
-        </button>
-        <button>
-          <img src={bellImg} alt="Notificações"></img>
-        </button>
-      </header>
+      </HeaderStyle>
     </>
   );
 }
