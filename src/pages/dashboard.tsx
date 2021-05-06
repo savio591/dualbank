@@ -1,5 +1,6 @@
 import { CashByTags } from "../components/CashByTags";
 import { DashboardContainer } from "../components/DashboardContainer";
+import { DownloadContainer } from "../components/DownloadContainer";
 import { Dropdown } from "../components/Dropdown";
 import { Header } from "../components/Header";
 import Popup from "../components/Popup";
@@ -18,6 +19,7 @@ export function Dashboard() {
       <Popup />
       <Dropdown type="accounts" />
       <Dropdown type="options" />
+      <DownloadContainer />
     </>
   );
 }
