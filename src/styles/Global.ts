@@ -3,10 +3,14 @@ import { createGlobalStyle } from "styled-components";
 export const GlobalStyle = createGlobalStyle`
 :root {
     --blue-dark: #363F5F;
+    --blue: #172765;
     --shape: #FFFFFF;
     --purple: #622EE5;
     --divider: #E5E4E2;
     --cashAvailable: #69D531;
+    --barBackground: #f9f9f9;
+
+    --boxShadow-bottonOnly: 0px 2px 4px -2px rgb(0 0 0 / 25%);
 }
 
 * {
@@ -28,6 +32,7 @@ html {
 body {
     background: var(--shape);
     -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 body, input, textarea, button {
