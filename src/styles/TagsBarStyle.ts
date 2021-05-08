@@ -9,6 +9,7 @@ export const TagsBarStyle = styled.div`
   align-items: center;
   justify-content: flex-start;
   padding: 0 1.25rem;
+  width: 100%;
 
   button {
     border: transparent;
