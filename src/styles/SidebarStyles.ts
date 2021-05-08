@@ -7,7 +7,7 @@ export const SidebarStyles = styled.aside`
   align-items: flex-start;
   justify-content: center;
   position: relative;
-  flex-grow: 1;
+  flex-grow: 0;
 
   background: var(--barBackground);
   box-shadow: 0 0.25rem 0.25rem rgba(0, 0, 0, 0.25);
