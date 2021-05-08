@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const SidebarStyles = styled.aside`
+z-index: 2;
   display: flex;
   flex-direction: row;
   width: 2.875rem;

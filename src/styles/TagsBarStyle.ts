@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const TagsBarStyle = styled.div`
+  z-index: 0;
   display: flex;
   flex-direction: row;
   background: var(--barBackground);
