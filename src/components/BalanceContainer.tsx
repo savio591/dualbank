@@ -6,7 +6,7 @@ import refreshImg from "../assets/refresh.svg";
 import shieldImg from "../assets/shield.svg";
 import eyeImg from "../assets/eye.svg";
 
-export function DashboardContainer() {
+export function BalanceContainer() {
   return (
     <>
       <div>
