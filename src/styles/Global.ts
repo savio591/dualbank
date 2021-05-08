@@ -29,10 +29,13 @@ html {
     }
 }
 
+
 body {
     background: var(--shape);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+     text-shadow: 1px 1px 1px rgba(0,0,0,0.004);
     width: 100%;
     height: 100%;
 }
@@ -47,7 +50,6 @@ h1, h2, h3, h4, h5, h6, strong {
 
 button {
     cursor: pointer;
-
 }
 
 img {

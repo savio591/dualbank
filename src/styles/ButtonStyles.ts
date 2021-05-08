@@ -92,4 +92,137 @@ export const ButtonStyles = styled.button`
       filter: brightness(0.75);
     }
   }
+
+  &.balanceOpts {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 80px;
+    height: 40px;
+
+    border: 1px solid #622ee5;
+    box-sizing: border-box;
+    border-radius: 5px;
+
+    &:hover {
+      background: linear-gradient(270deg, #622ee5 0%, #a683ff 100%);
+      border: transparent;
+      img {
+        filter: brightness(100);
+      }
+    }
+
+    &:active {
+      filter: brightness(0.9);
+    }
+  }
+
+  &.balanceDate {
+    width: 280px;
+    padding: 0.25rem 1rem;
+    background: var(--barBackground);
+    border: 0.5px solid #e5e4e2;
+    border-bottom: 1px solid #622ee5;
+    box-sizing: border-box;
+    border-radius: 5px 5px 0px 0px;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    div {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+
+      h2 {
+        font-style: normal;
+        font-weight: normal;
+        font-size: 12px;
+        line-height: 14px;
+        display: flex;
+        align-items: center;
+        color: #622ee5;
+      }
+
+      span {
+        font-style: normal;
+        font-weight: normal;
+        font-size: 16px;
+        line-height: 19px;
+        display: flex;
+        align-items: flex-end;
+        color: #172765;
+      }
+    }
+  }
+
+  &.balanceAvailable {
+    width: 280px;
+    padding: 0.25rem 1rem;
+    background: var(--barBackground);
+    border: 0.5px solid #e5e4e2;
+    border-bottom: 1px solid #622ee5;
+    box-sizing: border-box;
+    border-radius: 5px 5px 0px 0px;
+    cursor: default;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0 1rem;
+
+    div {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      align-content: flex-start;
+      flex-grow: 1;
+
+      h2 {
+        font-style: normal;
+        font-weight: normal;
+        font-size: 12px;
+        line-height: 14px;
+        display: flex;
+        align-items: center;
+        color: #778899;
+      }
+
+      span {
+        font-style: normal;
+        font-weight: normal;
+        font-size: 16px;
+        line-height: 19px;
+        display: flex;
+        align-items: flex-end;
+        color: var(--cashAvailable);
+      }
+    }
+  }
+  &.refresh {
+    button {
+      background: transparent;
+      border: transparent;
+    }
+  }
+
+  &.eye {
+    border: transparent;
+    background: transparent;
+  }
+
+  &.eyeBig {
+    padding: 0.25rem;
+    border: transparent;
+    background: transparent;
+
+    img {
+      width: 1.5rem;
+      height: 1.5rem;
+    }
+  }
 `;

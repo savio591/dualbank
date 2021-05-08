@@ -11,6 +11,11 @@ export const BalancePageStyle = styled.div`
 export const BalancePageStyleContainer = styled.div`
   display: flex;
   flex-direction: row;
-  width: 100%;
-  height: 100%;
+  flex-grow: 1;
+
+  .columnContainer {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  }
 `;
