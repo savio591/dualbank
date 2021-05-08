@@ -33,6 +33,8 @@ body {
     background: var(--shape);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    width: 100%;
+    height: 100%;
 }
 
 body, input, textarea, button {
@@ -54,6 +56,6 @@ img {
 
 [disabled] {
     opacity: 0.6;
-    cursor: not-allowed
+    cursor: default
 }
 `;
