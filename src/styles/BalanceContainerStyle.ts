@@ -4,8 +4,10 @@ export const BalanceContainerStyle = styled.div`
   display: flex;
   flex-direction: column;
   padding: 28px 20px;
+  flex-grow: 1;
   width: 100%;
   gap: 1rem;
+  background: var(--barBackground);
 
   .header {
     display: flex;

@@ -1,9 +1,11 @@
-import { Children, ReactNode } from "react";
+import { Children, ReactNode, useState } from "react";
 import { ButtonStyles } from "../styles/ButtonStyles";
 
 import CaretDownImg from "../assets/caretDown.svg";
 import shieldImg from "../assets/shield.svg";
 import eyeImg from "../assets/eye.svg";
+import pauseImg from "../assets/pause.svg";
+import cancelImg from "../assets/cancel.svg";
 
 interface ButtonProps {
   type:
@@ -14,13 +16,20 @@ interface ButtonProps {
     | "balanceAvailable"
     | "refresh"
     | "eye"
-    | "eyeBig";
+    | "eyeBig"
+    | "button"
+    | "playPause"
+    | "cancel";
   data?: string;
   selected?: Boolean;
   disabled?: Boolean;
   title?: string | undefined;
   alt?: string | undefined;
-  onClick ?: () => void;
+  onClick?: () => void;
+}
+
+interface StatusState {
+  status: string;
 }
 
 export function Button({
@@ -30,8 +39,11 @@ export function Button({
   disabled,
   title,
   alt,
-  onClick
+  onClick,
 }: ButtonProps) {
+  const [status, setStatus] = useState("empty");
+  if (type === "cancel") data = cancelImg;
+  if (type === "playPause") data = pauseImg;
   if (type === "balanceAvailable") {
     return (
       <ButtonStyles
@@ -39,7 +51,7 @@ export function Button({
         disabled={disabled ? true : false}
         title={title || ""}
       >
-        <img src={shieldImg} alt="Protegido" draggable={false}  />
+        <img src={shieldImg} alt="Protegido" draggable={false} />
         <div>
           <h2>Saldo disponível</h2>
           <span>R$40.000,00</span>

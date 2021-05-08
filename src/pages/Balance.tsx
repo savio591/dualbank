@@ -1,5 +1,6 @@
 import React from "react";
 import { BalanceContainer } from "../components/BalanceContainer";
+import { DownloadContainer } from "../components/DownloadContainer";
 import { Header } from "../components/Header";
 import { Sidebar } from "../components/Sidebar";
 import { TagsBar } from "../components/TagsBar";
@@ -19,6 +20,7 @@ export function Balance() {
           <div className="columnContainer">
             <TagsBar />
             <BalanceContainer />
+            <DownloadContainer />
           </div>
         </BalancePageStyleContainer>
       </BalancePageStyle>

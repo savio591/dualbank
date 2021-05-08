@@ -225,4 +225,8 @@ export const ButtonStyles = styled.button`
       height: 1.5rem;
     }
   }
+
+  &.cancel {
+    
+  }
 `;
