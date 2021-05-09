@@ -19,7 +19,8 @@ interface ButtonProps {
     | "eyeBig"
     | "button"
     | "playPause"
-    | "cancel";
+    | "cancel"
+    | "copy";
   data?: string;
   selected?: Boolean;
   disabled?: Boolean;
