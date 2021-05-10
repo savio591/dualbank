@@ -40,22 +40,35 @@ export const ButtonStyles = styled.button`
       }
     }
 
+    &:active {
+      filter: contrast(1.25);
+    }
+
+    &:hover {
+      background: linear-gradient(95.85deg, #f9f9f9 0%, #e5e4e2 100%);
+
+      &:active {
+        background: linear-gradient(95.85deg, #f9f9f9 10%, #c5c4c2 100%);
+      }
+    }
+
     &.selected {
       background: var(--purple);
       img {
         filter: brightness(100);
       }
-    }
-    &:hover {
-      background: linear-gradient(89.96deg, #622ee5 0.06%, #172765 99.94%);
 
-      img {
-        filter: brightness(100);
+      &:hover {
+        background: linear-gradient(89.96deg, #622ee5 0.06%, #172765 99.94%);
+
+        img {
+          filter: brightness(100);
+        }
+
+        &:active {
+          background: linear-gradient(89.96deg, #622ee5 0.06%, #071755 100%);
+        }
       }
-    }
-
-    &:active {
-      filter: contrast(1.25);
     }
 
     &[disabled] {
