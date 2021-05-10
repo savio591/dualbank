@@ -24,7 +24,7 @@ export const BalanceContainerStyle = styled.div`
       color: #172765;
     }
 
-    ul {
+    ul.headerOptions {
       display: flex;
       flex-direction: row;
       list-style: none;
