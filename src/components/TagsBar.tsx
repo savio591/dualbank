@@ -1,20 +1,82 @@
 import tagImg from "../assets/tag.svg";
 import addTagImg from "../assets/addTag.svg";
-import eyeImg from "../assets/eye.svg";
 import { TagsBarStyle } from "../styles/TagsBarStyle";
+import { Button } from "./Button";
+import { useState } from "react";
+import { Popup } from "./Popup";
 
 export function TagsBar() {
+  const [isBalanceShowed, setIsBalanceShowed] = useState(true);
+  const [newTagClickObserver, setNewTagClickObserver] = useState(false);
+  const [
+    isNewAllocationButtonHovered,
+    setIsNewAllocationButtonHovered,
+  ] = useState(false);
+
+  function handleSetBalanceShow() {
+    setIsBalanceShowed(!isBalanceShowed);
+  }
+
+  function handleShowTagContainer() {
+    setNewTagClickObserver(true);
+  }
+
+  function handleHideTagContainer() {
+    setNewTagClickObserver(false);
+  }
+
+  function handleTooglePopup() {
+    setIsNewAllocationButtonHovered(!isNewAllocationButtonHovered);
+  }
+
   return (
     <TagsBarStyle>
-      <div className="tagsButtons">
-        <button title="Ver tags">
-          <img src={tagImg} alt="Ver tags"   />
-        </button>
-        <button title="Adicionar nova tag">
-          <img src={addTagImg} alt="Adicionar nova tag"  />
-        </button>
+      <div
+        className={
+          "newTagContainer" + " " + (newTagClickObserver ? "" : "hidden")
+        }
+        onMouseLeave={handleHideTagContainer}
+      >
+        <section className="available">
+          <h1>Disponíbilizado</h1>
+          <p>
+            <span>R$20.000,00</span>
+            &#160; do seu saldo
+          </p>
+        </section>
+        <section className="available">
+          <h1>Distribuído</h1>
+          <p>
+            <span>R$12.050,00</span>
+            (60,25%)
+          </p>
+        </section>
+        <Button type="boxWithText" text="ALTERAR" />
       </div>
-
+      <div className="tagsButtons">
+        <Button
+          type="tag"
+          title="Ver tags"
+          data={tagImg}
+          alt="Ver tags"
+          onHover={handleShowTagContainer}
+        />
+        <Button
+          type="tag"
+          title="Adicionar nova tag"
+          data={addTagImg}
+          alt="Adicionar nova tag"
+          onHover={handleTooglePopup}
+          onMouseLeave={handleTooglePopup}
+        />
+        <Popup
+          type={
+            "message" + " " + (isNewAllocationButtonHovered ? " " : "hidden")
+          }
+        >
+          Nova Alocação
+        </Popup>
+      </div>
       <ul>
         <li>
           <div
@@ -32,11 +94,9 @@ export function TagsBar() {
           <div>
             <div>
               <h2>Principal</h2>
-              <button>
-                <img src={eyeImg} alt="Ocultar saldo" />
-              </button>
+              <Button type="eye" onClick={handleSetBalanceShow} />
             </div>
-            <span>R$ 10.00,00</span>
+            {isBalanceShowed ? <span>R$10.000,00</span> : ""}
           </div>
         </li>
         <li>
@@ -54,11 +114,9 @@ export function TagsBar() {
           <div>
             <div>
               <h2>Aluguel</h2>
-              <button>
-                <img src={eyeImg} alt="Ocultar saldo" />
-              </button>
+              <Button type="eye" onClick={handleSetBalanceShow} />
             </div>
-            <span>R$ 1.600,00</span>
+            {isBalanceShowed ? <span>R$6.000,00</span> : ""}
           </div>
         </li>
         <li>
@@ -76,11 +134,9 @@ export function TagsBar() {
           <div>
             <div>
               <h2>Alimentação</h2>
-              <button>
-                <img src={eyeImg} alt="Ocultar saldo" />
-              </button>
+              <Button type="eye" onClick={handleSetBalanceShow} />
             </div>
-            <span>R$ 450,00</span>
+            {isBalanceShowed ? <span>R$450,00</span> : ""}
           </div>
         </li>
       </ul>

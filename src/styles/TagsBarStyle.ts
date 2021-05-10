@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const TagsBarStyle = styled.div`
-  z-index: 0;
+  z-index: 1;
   display: flex;
   flex-direction: row;
   background: var(--barBackground);
@@ -15,11 +15,17 @@ export const TagsBarStyle = styled.div`
   button {
     border: transparent;
     background: transparent;
+    position: relative;
+    z-index: 100;
   }
 
   .tagsButtons {
     display: flex;
+    z-index: 0;
+    gap: 1.25rem;
+    position: relative;
     button {
+      z-index: 0;
       display: flex;
       background: linear-gradient(135deg, #ffffff 0%, #e5e4e2 100%);
       border-radius: 50%;
@@ -27,6 +33,7 @@ export const TagsBarStyle = styled.div`
       justify-content: center;
       width: 2.25rem;
       height: 2.25rem;
+
       transition: 0.2s;
 
       :hover {
@@ -34,8 +41,87 @@ export const TagsBarStyle = styled.div`
         transition: 0.2s;
       }
     }
-    button + button {
-      margin-left: 1.25rem;
+  }
+
+  .newTagContainer {
+    visibility: visible;
+    opacity: 1;
+    z-index: 100;
+    padding: 1rem 2rem;
+    position: absolute;
+    width: 280px;
+    left: 4rem;
+    top: 7.25rem;
+    gap: 20px;
+
+    background: linear-gradient(89.96deg, #f9f9f9 0.06%, #e5e4e2 99.94%);
+    /* Dropdown Drop shadow */
+
+    box-shadow: 0px 2px 20px rgba(44, 74, 125, 0.217548);
+    border-radius: 0px 0px 5px 5px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    transition: opacity .2s ease-in-out;
+
+    &.hidden {
+      visibility: collapse;
+      opacity: 0;
+      transition: opacity .2s;
+
+    }
+
+    section {
+      display: flex;
+      flex-direction: column;
+      gap: 0.475rem;
+      h1 {
+        font-family: Raleway;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 16px;
+        display: flex;
+        align-items: center;
+
+        /* Dark blue - Primary Variant color */
+
+        color: #172765;
+      }
+
+      p {
+        font-family: Lato;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 14px;
+        line-height: 17px;
+        /* identical to box height */
+
+        display: flex;
+        align-items: center;
+
+        /* Icon & Text color */
+
+        color: #172765;
+
+        span {
+          font-family: Lato;
+          font-style: normal;
+          font-weight: 600;
+          font-size: 14px;
+          line-height: 17px;
+          /* identical to box height */
+
+          display: flex;
+          align-items: center;
+
+          /* Positive */
+
+          color: #69d531;
+        }
+      }
     }
   }
 
