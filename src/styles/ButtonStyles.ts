@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const ButtonStyles = styled.button`
   border: transparent;
   background: transparent;
+  position: relative;
 
   &.sidebar {
     width: 2.25rem;
@@ -118,6 +119,45 @@ export const ButtonStyles = styled.button`
     }
   }
 
+  &.balanceOptsWithDropdown {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 80px;
+    height: 40px;
+
+    border: 1px solid #622ee5;
+    box-sizing: border-box;
+    border-radius: 5px;
+
+    &:hover {
+      background: linear-gradient(270deg, #5127bb 0%, #a683ff 100%);
+      border: transparent;
+      img {
+        filter: brightness(100);
+      }
+    }
+
+    &:active {
+      &::only-of-type {
+        background: linear-gradient(270deg, #622ee5 0%, #a683ff 100%);
+        border: transparent;
+      }
+    }
+
+    &::only-child {
+      filter: brightness(0.9);
+    }
+
+    &:focus {
+      ul {
+        visibility: visible;
+        opacity: 1;
+      }
+    }
+  }
+
   &.balanceDate {
     width: 280px;
     padding: 0.25rem 1rem;
@@ -227,6 +267,39 @@ export const ButtonStyles = styled.button`
   }
 
   &.cancel {
-    
+  }
+
+  &.accountsButton {
+    display: flex;
+    width: 9rem;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 1rem;
+    line-height: 1.1875rem; /* 19px */
+    display: flex;
+    align-items: center;
+    color: var(--blue-dark);
+    background: transparent;
+    border: none;
+    flex-grow: 0;
+
+    img {
+      margin-left: 0.625rem;
+      transform: rotate(0deg);
+      transition: transform 0.2s;
+    }
+
+    &:hover {
+      background: #fafafa;
+    }
+
+    &:focus {
+      img {
+        transform: rotate(180deg);
+      }
+    }
   }
 `;
