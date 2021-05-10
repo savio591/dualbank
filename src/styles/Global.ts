@@ -60,4 +60,29 @@ img {
     opacity: 0.6;
     cursor: default
 }
+
+
+/* width */
+::-webkit-scrollbar {
+  width: 12px;
+  height: 1rem;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: transparent; 
+  
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  border-radius: 0.75rem;
+  background: #C8C6C4; 
+  border: 4px white solid;   
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #a9a9a9; 
+}
 `;
