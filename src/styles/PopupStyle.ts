@@ -50,4 +50,50 @@ export const PopupStyle = styled.div`
     visibility: visible;
     opacity: 1;
   }
+
+  div.popupMessage {
+    width: 6rem;
+    position: absolute;
+    transition: 0.2s;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
+
+    background-color: #fff;
+    border-radius: 6px;
+    padding: 4px 8px;
+    z-index: 1;
+    top: -1.25rem;
+    left: -3.75rem;
+
+    span {
+      font-style: normal;
+      font-weight: normal;
+      font-size: 0.75rem;
+      line-height: 14px;
+
+      color: #172765;
+    }
+
+    filter: drop-shadow(0px 2px 8px rgba(0, 0, 0, 0.15));
+  }
+
+  & .popupMessage::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 1rem;
+    border-width: 5px;
+    border-style: solid;
+    border-color: var(--shape) transparent transparent transparent;
+  }
+
+  .popupMessage.hidden {
+    visibility: collapse;
+    opacity: 0;
+  }
 `;

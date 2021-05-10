@@ -14,31 +14,43 @@ import { Button } from "./Button";
 import { useToast, ToastProvider } from "../services/toastService";
 
 interface PopupProps {
-  type: "copy";
+  type: "copy" | "message" | string;
   className?: string;
   children: string;
+  copyType?: string;
+  of?: string;
+  onMouseLeave?: () => void;
 }
 
-export function Popup({ type, className, children }: PopupProps) {
+export function Popup({ type, className, copyType, onMouseLeave, of, children }: PopupProps) {
   const { addToast } = useToast();
   function handleClickCopy() {
+    const type = of || "desconhecida";
     const textSplit = children.toString().split(" ");
     const textToBeCopied = textSplit[1];
     copy(textToBeCopied);
     addToast({
-      of: "Agenzar",
+      of: type,
     });
   }
 
-  // if (type === "copy") {
+  if (type === "copy") {
+    return (
+      <PopupStyle className={className}>
+        {children}
+        <div className="popupText">
+          <Button type="copy" data={copyImg} onClick={handleClickCopy} />
+          <span>Copiar</span>
+        </div>
+      </PopupStyle>
+    );
+  }
+
   return (
-    <PopupStyle className={className}>
-      {children}
-      <div className="popupText">
-        <Button type="copy" data={copyImg} onClick={handleClickCopy} />
-        <span>Copiar</span>
+    <PopupStyle>
+      <div className={"popupMessage "+type} onMouseLeave={onMouseLeave}>
+        <span>{children}</span>
       </div>
     </PopupStyle>
   );
-  // }
 }

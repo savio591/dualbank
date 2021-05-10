@@ -35,14 +35,18 @@ interface ButtonProps {
     | "cancel"
     | "copy"
     | "accounts"
-    | "tag";
+    | "tag"
+    | "boxWithText";
   data?: string;
   balance?: number;
   selected?: Boolean;
   disabled?: Boolean;
   title?: string | undefined;
   alt?: string | undefined;
+  text?: string | undefined;
   onClick?: () => void;
+  onHover?: () => void;
+  onMouseLeave?: () => void;
   options?: {
     name: string;
     url: string;
@@ -61,8 +65,11 @@ export function Button({
   title,
   alt,
   onClick,
+  onHover,
+  onMouseLeave,
   options,
   balance,
+  text,
 }: ButtonProps) {
   if (type === "cancel") data = cancelImg;
   if (type === "playPause") data = pauseImg;
@@ -84,6 +91,18 @@ export function Button({
           </span>
         </div>
         <Button data={eyeImg} type="eyeBig" />
+      </ButtonStyles>
+    );
+  }
+  if (type === "boxWithText") {
+    return (
+      <ButtonStyles
+        className={type}
+        disabled={disabled ? true : false}
+        title={title || ""}
+        onClick={onClick}
+      >
+        {text}
       </ButtonStyles>
     );
   }
@@ -175,6 +194,8 @@ export function Button({
       disabled={disabled ? true : false}
       title={title || ""}
       onClick={onClick}
+      onMouseEnter={onHover}
+      onMouseLeave={onMouseLeave}
     >
       <span className="bars"></span>
       <img src={data} alt={alt || ""} draggable={false} />

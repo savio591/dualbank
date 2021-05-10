@@ -55,7 +55,6 @@ export const ButtonStyles = styled.button`
     &.selected {
       background: var(--purple);
 
-
       img {
         filter: brightness(100);
       }
@@ -287,6 +286,28 @@ export const ButtonStyles = styled.button`
   }
 
   &.cancel {
+  }
+
+  &.boxWithText {
+    padding: 0.75rem 1.75rem;
+    background: #622ee5;
+    border-radius: 5px;
+
+    font-family: Raleway;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 16px;
+
+    color: #ffffff;
+
+    &:hover {
+      filter: brightness(0.95);
+
+      &:active {
+        filter: brightness(0.9);
+      }
+    }
   }
 
   &.accountsButton {
