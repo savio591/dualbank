@@ -25,30 +25,14 @@ export const HeaderStyle = styled.header`
     flex-direction: row;
     align-items: center;
     gap: 1.25rem;
-    
 
     .account {
       display: flex;
       flex-direction: column;
+      position: relative;
+      justify-content: space-between;
 
-      .accountsButton {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: flex-start;
-        font-style: normal;
-        font-weight: normal;
-        font-size: 1rem;
-        line-height: 1.1875rem; /* 19px */
-        display: flex;
-        align-items: center;
-        color: var(--blue-dark);
-        background: transparent;
-        border: none;
-        & img {
-          margin-left: 0.625rem;
-        }
-      }
+      
 
       & .data {
         display: flex;
@@ -70,6 +54,8 @@ export const HeaderStyle = styled.header`
     .cash {
       display: flex;
       flex-direction: column;
+      justify-content: flex-start;
+      flex-grow:1;
 
       div {
         display: flex;

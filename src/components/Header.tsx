@@ -10,8 +10,16 @@ import bellImg from "../assets/bell.svg";
 import { HeaderStyle } from "../styles/HeaderStyle";
 import { Popup } from "./Popup";
 import { Button } from "./Button";
+import { useState } from "react";
 
 export function Header() {
+  const [isBalanceShowed, setIsBalanceShowed] = useState(true);
+
+
+  function handleSetBalanceShow() {
+    setIsBalanceShowed(!isBalanceShowed)
+  }
+
   return (
     <>
       <HeaderStyle>
@@ -22,15 +30,12 @@ export function Header() {
             </Link>
           </div>
           <div className="account">
-            <button className="accountsButton">
-              Conta Corrente
-              <img src={caretDownImg}></img>
-            </button>
+            <Button type="accounts" />
             <div className="data">
-              <Popup type="copy" className="text">
+              <Popup type="copy" className="text" of="agência">
                 Ag. 00005-1
               </Popup>
-              <Popup type="copy" className="text">
+              <Popup type="copy" className="text" of="conta">
                 C.C. 00000000000000000020-1
               </Popup>
               <Button type="copy" data={copyImg} />
@@ -39,11 +44,9 @@ export function Header() {
           <div className="cash">
             <div>
               <h2>Saldo</h2>
-              <button>
-                <img src={eyeImg}></img>
-              </button>
+              <Button type="eye" onClick={handleSetBalanceShow} />
             </div>
-            <span>R$40.000,00</span>
+            {(isBalanceShowed) ? <span>R$40.000,00</span> : ""}
           </div>
         </div>
         <div className="rightContent">
