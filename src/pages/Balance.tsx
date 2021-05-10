@@ -4,6 +4,8 @@ import { DownloadContainer } from "../components/DownloadContainer";
 import { Header } from "../components/Header";
 import { Sidebar } from "../components/Sidebar";
 import { TagsBar } from "../components/TagsBar";
+import { Toast } from "../components/Toast";
+import { ToastProvider } from "../services/toastService";
 import {
   BalancePageStyle,
   BalancePageStyleContainer,
@@ -12,7 +14,7 @@ import { GlobalStyle } from "../styles/Global";
 
 export function Balance() {
   return (
-    <>
+    <ToastProvider>
       <BalancePageStyle>
         <Header />
         <BalancePageStyleContainer>
@@ -25,6 +27,6 @@ export function Balance() {
         </BalancePageStyleContainer>
       </BalancePageStyle>
       <GlobalStyle />
-    </>
+    </ToastProvider>
   );
 }
