@@ -54,6 +54,8 @@ export const ButtonStyles = styled.button`
 
     &.selected {
       background: var(--purple);
+
+
       img {
         filter: brightness(100);
       }
@@ -266,6 +268,11 @@ export const ButtonStyles = styled.button`
   &.eye {
     border: transparent;
     background: transparent;
+    width: 1rem;
+    height: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   &.eyeBig {

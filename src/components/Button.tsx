@@ -11,6 +11,8 @@ import { ButtonStyles } from "../styles/ButtonStyles";
 import CaretDownImg from "../assets/caretDown.svg";
 import shieldImg from "../assets/shield.svg";
 import eyeImg from "../assets/eye.svg";
+import eyeShowedImg from "../assets/eyeShowed.svg";
+import eyeNotShowedImg from "../assets/eyeNotShowed.svg";
 import pauseImg from "../assets/pause.svg";
 import cancelImg from "../assets/cancel.svg";
 import caretDownImg from "../assets/caret_down.svg";
@@ -32,8 +34,10 @@ interface ButtonProps {
     | "playPause"
     | "cancel"
     | "copy"
-    | "accounts";
+    | "accounts"
+    | "tag";
   data?: string;
+  balance?: number;
   selected?: Boolean;
   disabled?: Boolean;
   title?: string | undefined;
@@ -58,6 +62,7 @@ export function Button({
   alt,
   onClick,
   options,
+  balance,
 }: ButtonProps) {
   if (type === "cancel") data = cancelImg;
   if (type === "playPause") data = pauseImg;
@@ -71,7 +76,12 @@ export function Button({
         <img src={shieldImg} alt="Protegido" draggable={false} />
         <div>
           <h2>Saldo disponível</h2>
-          <span>R$40.000,00</span>
+          <span>
+            {balance?.toLocaleString("pt-br", {
+              style: "currency",
+              currency: "BRL",
+            })}
+          </span>
         </div>
         <Button data={eyeImg} type="eyeBig" />
       </ButtonStyles>
@@ -125,6 +135,38 @@ export function Button({
           {active && <Dropdown type="accounts" />}
         </ButtonStyles>
       </>
+    );
+  }
+
+  if (type === "eye") {
+    const [isBalanceShow, setIsBalanceShow] = useState(true);
+    const [eyeStatusImg, setEyeStatusImg] = useState(eyeImg);
+
+    useEffect(() => {
+      setIsBalanceShow(false);
+    }, []);
+
+    useEffect(() => {
+      isBalanceShow
+        ? setEyeStatusImg(eyeShowedImg)
+        : setEyeStatusImg(eyeNotShowedImg);
+    }, [isBalanceShow]);
+
+    const handleEye = () => {
+      setIsBalanceShow(!isBalanceShow);
+    };
+
+    return (
+      <ButtonStyles
+        className={type}
+        title={isBalanceShow ? "Ocultar Saldo" : "Mostrar saldo"}
+        onClick={() => {
+          onClick && onClick();
+          handleEye();
+        }}
+      >
+        <img src={eyeStatusImg} alt={alt || ""} draggable={false} />
+      </ButtonStyles>
     );
   }
   return (
