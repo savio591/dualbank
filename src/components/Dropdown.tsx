@@ -1,21 +1,35 @@
+import {
+  DropdownAccountsStyle,
+  DropdownOptionsStyle,
+} from "../styles/DropdownStyle";
+
 interface DropdownProps {
   type: "options" | "accounts";
+  options?: {
+    name: string;
+    url: string;
+  }[];
+  accounts?: {
+    name: string;
+    agency: string;
+    accountId: string;
+  }[];
 }
 
 export function Dropdown({ type }: DropdownProps) {
   if (type === "options") {
     return (
-      <ul>
+      <DropdownOptionsStyle>
         <li>Enviar por email</li>
         <li>Enviar por whatsapp</li>
         <li>Enviar por opção 3</li>
-      </ul>
+      </DropdownOptionsStyle>
     );
   }
 
   if (type === "accounts") {
     return (
-      <ul>
+      <DropdownAccountsStyle>
         <li>
           <h2>Conta Corrente</h2>
           <div>
@@ -100,7 +114,7 @@ export function Dropdown({ type }: DropdownProps) {
             <span>C.C. 000000000000015-1</span>
           </div>
         </li>
-      </ul>
+      </DropdownAccountsStyle>
     );
   }
 
