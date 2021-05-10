@@ -8,6 +8,8 @@ import chatImg from "../assets/chat.svg";
 import calendarImg from "../assets/calendar.svg";
 import bellImg from "../assets/bell.svg";
 import { HeaderStyle } from "../styles/HeaderStyle";
+import { Popup } from "./Popup";
+import { Button } from "./Button";
 
 export function Header() {
   return (
@@ -20,16 +22,18 @@ export function Header() {
             </Link>
           </div>
           <div className="account">
-            <button>
+            <button className="accountsButton">
               Conta Corrente
               <img src={caretDownImg}></img>
             </button>
-            <div>
-              <h2>Ag. 00005-1</h2>
-              <h2>C.C. 00000000000000000020-1</h2>
-              <button>
-                <img src={copyImg} />
-              </button>
+            <div className="data">
+              <Popup type="copy" className="text">
+                Ag. 00005-1
+              </Popup>
+              <Popup type="copy" className="text">
+                C.C. 00000000000000000020-1
+              </Popup>
+              <Button type="copy" data={copyImg} />
             </div>
           </div>
           <div className="cash">
@@ -44,12 +48,17 @@ export function Header() {
         </div>
         <div className="rightContent">
           <div className="searchField">
-            <input type="text" name="searchInput" id="search" placeholder="Pesquisar" />
-          <button>
-            <img src={searchImg} alt="Pesquisar" />
-          </button>
+            <input
+              type="text"
+              name="searchInput"
+              id="search"
+              placeholder="Pesquisar"
+            />
+            <button>
+              <img src={searchImg} alt="Pesquisar" />
+            </button>
           </div>
-          
+
           <button>
             <img src={chatImg} alt="Chat"></img>
           </button>

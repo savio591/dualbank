@@ -24,16 +24,14 @@ export const HeaderStyle = styled.header`
     display: flex;
     flex-direction: row;
     align-items: center;
-
-    div + div {
-      margin-left: 1.25rem;
-    }
+    gap: 1.25rem;
+    
 
     .account {
       display: flex;
       flex-direction: column;
 
-      button {
+      .accountsButton {
         display: flex;
         flex-direction: row;
         align-items: center;
@@ -47,16 +45,17 @@ export const HeaderStyle = styled.header`
         color: var(--blue-dark);
         background: transparent;
         border: none;
-        img {
+        & img {
           margin-left: 0.625rem;
         }
       }
 
-      div {
+      & .data {
         display: flex;
         flex-direction: row;
+        gap: 1rem;
 
-        h2 {
+        .text {
           font-style: normal;
           font-weight: normal;
           font-size: 0.75rem;
@@ -64,10 +63,6 @@ export const HeaderStyle = styled.header`
           display: flex;
           align-items: center;
           color: var(--purple);
-        }
-
-        h2 + h2 {
-          margin-left: 1rem;
         }
       }
     }
