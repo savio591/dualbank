@@ -12,13 +12,14 @@ export function BalanceContainer() {
     <BalanceContainerStyle>
       <div className="header">
         <h2>Saldo Bancário</h2>
-        <ul>
+        <ul className="headerOptions">
           <li>
             <Button
               data={printImg}
               type="balanceOpts"
               alt="Imprimir"
               title="Imprimir"
+              onClick={() => window.print()}
             />
           </li>
           <li>
@@ -32,9 +33,15 @@ export function BalanceContainer() {
           <li>
             <Button
               data={shareImg}
-              type="balanceOpts"
+              type="balanceOptsWithDropdown"
               alt="Compartilhar"
               title="Compartilhar"
+              options={[
+                {
+                  name: "Enviar por email",
+                  url: "https://gmail.com",
+                },
+              ]}
             />
           </li>
         </ul>
@@ -45,7 +52,7 @@ export function BalanceContainer() {
           <h3>Saldo atualizado às 16:48 </h3>
           <Button type="refresh" data={refreshImg} />
         </div>
-        <Button type="balanceAvailable" />
+        <Button type="balanceAvailable" balance={40010} />
       </div>
     </BalanceContainerStyle>
   );

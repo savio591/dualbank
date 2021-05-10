@@ -22,7 +22,6 @@ export function Balance() {
           <div className="columnContainer">
             <TagsBar />
             <BalanceContainer />
-            <DownloadContainer />
           </div>
         </BalancePageStyleContainer>
       </BalancePageStyle>
